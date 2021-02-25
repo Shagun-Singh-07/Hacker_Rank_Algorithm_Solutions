@@ -14,13 +14,12 @@ import sys
 def diagonalDifference(arr):
     diagonal1 = 0
     diagonal2 = 0
-    length = len(arr)
-    for i in range(0,length):
+    for i in range(0,len(arr)):
         diagonal1 += arr[i][i]
-        diagonal2 += arr[i][length - i - 1]
-        differnece_of_diagonals = diagonal1 - diagonal2
-    return abs(differnece_of_diagonals)
-
+        arr.reverse()
+        diagonal2 += arr[i][i]
+        arr.reverse()
+    return abs(diagonal1 - diagonal2)
 
 if __name__ == '__main__':
     fptr = open(os.environ['OUTPUT_PATH'], 'w')
